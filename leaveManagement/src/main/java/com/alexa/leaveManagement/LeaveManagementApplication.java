@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages= "com.alexa.leaveManagement.controller")
+@ComponentScan()
 public class LeaveManagementApplication {
 
 	public static void main(String[] args) {
@@ -13,4 +13,3 @@ public class LeaveManagementApplication {
 	}
 
 }
-
