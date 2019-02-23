@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "leaves")
-public class Leaves {
+public class Leave {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "leave_id", nullable = false)
@@ -31,18 +31,18 @@ public class Leaves {
 	private String leaveReason;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id", nullable=false)
-	private Users users;
+	private User user;
 
-	public Leaves() {
+	public Leave() {
 	}
 
-	public Leaves(Integer leaveId, Date startDate, Date endDate, String leaveReason, Users users) {
+	public Leave(Integer leaveId, Date startDate, Date endDate, String leaveReason, User user) {
 		super();
 		this.leaveId = leaveId;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.leaveReason = leaveReason;
-		this.users = users;
+		this.user = user;
 	}
 
 	public Integer getLeaveId() {
@@ -77,12 +77,12 @@ public class Leaves {
 		this.leaveReason = leaveReason;
 	}
 
-	public Users getUsers() {
-		return users;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUsers(User user) {
+		this.user = user;
 	}
 
 }

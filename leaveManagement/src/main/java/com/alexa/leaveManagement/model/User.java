@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,13 +21,13 @@ public class Users {
 	private Integer userId;
 	@Column(name = "user_name", nullable = false, unique = true)
 	private String userName;
-	@OneToMany(mappedBy="users")
-	private Collection<Leaves> leaves = new ArrayList<>();
+	@OneToMany(mappedBy="user")
+	private Collection<Leave> leaves = new ArrayList<>();
 
-	public Users() {
+	public User() {
 	}
 
-	public Users(Integer userId, String userName) {
+	public User(Integer userId, String userName) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -49,11 +49,11 @@ public class Users {
 		this.userName = userName;
 	}
 
-	public Collection<Leaves> getLeaves() {
+	public Collection<Leave> getLeaves() {
 		return leaves;
 	}
 
-	public void setLeaves(Collection<Leaves> leaves) {
+	public void setLeaves(Collection<Leave> leaves) {
 		this.leaves = leaves;
 	}
 
