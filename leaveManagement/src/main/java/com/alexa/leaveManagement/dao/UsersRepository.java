@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.alexa.leaveManagement.model.Users;
 
-public interface UsersDao extends CrudRepository<Users, Integer> {
+public interface UsersRepository extends CrudRepository<Users, Integer> {
 
 }

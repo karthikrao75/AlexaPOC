@@ -16,10 +16,7 @@ public class DBConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-		dataSourceBuilder.driverClassName(environment.getProperty("sqlite.driver.class.name"));
-		dataSourceBuilder.url(environment.getProperty("sqlite.url"));
-
-		return dataSourceBuilder.build();
+		return DataSourceBuilder.create().driverClassName(environment.getProperty("sqlite.driver.class.name"))
+				.url(environment.getProperty("sqlite.url")).build();
 	}
 }

@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.alexa.leaveManagement.model.Leaves;
 
-public interface LeavesDao extends CrudRepository<Leaves, Integer>{
+public interface LeavesRepository extends CrudRepository<Leaves, Integer>{
 
 }
