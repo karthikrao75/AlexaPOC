@@ -19,7 +19,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id", nullable = false)
 	private Integer userId;
-	@Column(name = "user_name", nullable = false, unique = true)
+	@Column(name = "user_name", nullable = false)
 	private String userName;
 	@OneToMany(mappedBy="user")
 	private Collection<Leave> leaves = new ArrayList<>();

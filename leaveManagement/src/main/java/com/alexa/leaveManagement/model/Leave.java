@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+
 @Entity
 @Table(name = "leaves")
 public class Leave {
@@ -22,15 +25,16 @@ public class Leave {
 	@Column(name = "leave_id", nullable = false)
 	private Integer leaveId;
 	@Column(name = "start_date")
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
-	@Temporal(TemporalType.TIMESTAMP)
+	@JsonSerialize(using = DateSerializer.class)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "end_date")
 	private Date endDate;
 	@Column(name = "leave_reason", nullable = false)
 	private String leaveReason;
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id", nullable=false)
+	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
 	public Leave() {
