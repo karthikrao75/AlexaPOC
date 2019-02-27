@@ -1,19 +1,16 @@
 package com.alexa.leaveManagement.dao;
 
 import java.util.Date;
-import java.util.stream.Stream;
+import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 
 import com.alexa.leaveManagement.model.Leave;
+import com.alexa.leaveManagement.model.User;
 
 public interface LeaveRepository extends CrudRepository<Leave, Integer> {
 
-	@Query("select l from Leave l where userName = :userName and startDate >= :futureDate")
-	Stream<Leave> findFutureLeavesByUser(@Param("userName") String userName,@Param("futureDate") Date futureDate);
+	List<Leave> findByStartDateLessThanEqualAndUser(Date startDate, User user);
 
-	@Query("select l from Leave l where startDate >= :futureDate")
-	Stream<Leave> findUpcomingLeavePlans(@Param("futureDate") Date futureDate);
+	List<Leave> findByStartDateGreaterThanEqual(Date futureDate);
 }

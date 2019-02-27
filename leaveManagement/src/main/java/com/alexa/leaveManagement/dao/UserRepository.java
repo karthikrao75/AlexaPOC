@@ -6,5 +6,5 @@ import com.alexa.leaveManagement.model.User;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-	User findUserByUserName(String userName);
+	User findByUserName(String userName);
 }

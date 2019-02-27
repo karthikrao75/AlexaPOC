@@ -1,5 +1,8 @@
 package com.alexa.leaveManagement.helper;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 
 import com.alexa.leaveManagement.Vo.LeaveVO;
@@ -23,5 +26,9 @@ public class LeaveManagementHelper {
 		leaveVO.setLeaveReason(leave.getLeaveReason());
 		leaveVO.setUserName(leave.getUser().getUserName());
 		return leaveVO;
+	}
+
+	public List<LeaveVO> transformLeaves(List<Leave> leaves) {
+		return leaves.stream().map(e-> transformLeave(e)).collect(Collectors.toList());
 	}
 }
