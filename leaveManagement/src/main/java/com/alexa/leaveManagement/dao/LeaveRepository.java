@@ -10,7 +10,7 @@ import com.alexa.leaveManagement.model.User;
 
 public interface LeaveRepository extends CrudRepository<Leave, Integer> {
 
-	List<Leave> findByStartDateLessThanEqualAndUser(Date startDate, User user);
+	List<Leave> findByStartDateGreaterThanEqualAndUser(Date startDate, User user);
 
 	List<Leave> findByStartDateGreaterThanEqual(Date futureDate);
 }

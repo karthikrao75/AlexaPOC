@@ -44,7 +44,7 @@ public class LeaveController {
 	@RequestMapping(value = "/leave", method = RequestMethod.GET)
 	@Transactional
 	public List<LeaveVO> getLeavePlan(@RequestParam("userName") String userName) {
-		List<Leave> leaves = leaveRepository.findByStartDateLessThanEqualAndUser(new Date(),
+		List<Leave> leaves = leaveRepository.findByStartDateGreaterThanEqualAndUser(new Date(),
 				userRepository.findByUserName(userName));
 		return leaveManagementHelper.transformLeaves(leaves);
 	}
