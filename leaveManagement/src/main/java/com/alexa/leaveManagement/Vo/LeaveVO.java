@@ -2,6 +2,7 @@ package com.alexa.leaveManagement.Vo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
@@ -9,8 +10,10 @@ public class LeaveVO {
 
 	private String userName;
 	@JsonSerialize(using = DateSerializer.class)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MMM/yyyy")
 	private Date startDate;
 	@JsonSerialize(using = DateSerializer.class)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MMM/yyyy")
 	private Date endDate;
 	private String leaveReason;
 
