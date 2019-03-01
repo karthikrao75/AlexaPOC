@@ -10,10 +10,10 @@ public class LeaveVO {
 
 	private String userName;
 	@JsonSerialize(using = DateSerializer.class)
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MMM/yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date startDate;
 	@JsonSerialize(using = DateSerializer.class)
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MMM/yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date endDate;
 	private String leaveReason;
 
