@@ -3,9 +3,24 @@ http://localhost:8080/leave
 #request
 
 
-{
-	"startDate":"2018-02-22",
-	"endDate":"2018-02-24",
-	"leaveReason":"My reason",
-	"userName":"karthik"
+    {
+        "userName": "karthik",
+        "startDate": "24/04/2019",
+        "endDate": "28/04/2019",
+        "leaveReason": "Visiting home town"
+    }
+    
+    {
+        "userName": "karthik",
+        "startDate": "14/05/2019",
+        "endDate": "24/05/2019",
+        "leaveReason": "Planned Goa trip"
+    }
+    
+    
+    {
+	"startDate":"14/06/2019",
+	"endDate":"24/06/2019",
+	"leaveReason":"madhu's marriage",
+	"userName":"srikanth"
 }

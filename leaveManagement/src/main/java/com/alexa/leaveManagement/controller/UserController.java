@@ -1,6 +1,7 @@
 package com.alexa.leaveManagement.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,12 @@ public class UserController {
 	public String addUsers(@RequestBody() List<User> users) {
 		userRepository.saveAll(users);
 		return "User added successfully";
+	}
+
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public List<String> getUsers() {
+		List<User> users = (List<User>) userRepository.findAll();
+		return users.stream().map(e -> e.getUserName()).collect(Collectors.toList());
 	}
 
 }

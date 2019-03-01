@@ -1,6 +1,8 @@
 package com.alexa.leaveManagement.controller;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -41,11 +43,20 @@ public class LeaveController {
 		return leaveVO;
 	}
 
-	@RequestMapping(value = "/leave", method = RequestMethod.GET)
 	@Transactional
+	@RequestMapping(value = "/leave", method = RequestMethod.GET)
 	public List<LeaveVO> getLeavePlan(@RequestParam("userName") String userName) {
 		List<Leave> leaves = leaveRepository.findByStartDateGreaterThanEqualAndUser(new Date(),
 				userRepository.findByUserName(userName));
+		return leaveManagementHelper.transformLeaves(leaves);
+	}
+
+	@Transactional
+	@RequestMapping(value = "/leave/upcoming", method = RequestMethod.GET)
+	public List<LeaveVO> getUpComingLeavePlans() throws ParseException {
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		Date todayWithZeroTime = formatter.parse(formatter.format(new Date()));
+		List<Leave> leaves = leaveRepository.findByStartDateGreaterThanEqual(todayWithZeroTime);
 		return leaveManagementHelper.transformLeaves(leaves);
 	}
 
